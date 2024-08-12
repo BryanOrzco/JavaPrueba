@@ -1,0 +1,32 @@
+package com.servicio.demo;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
+
+import java.util.List;
+
+public class ProductController {
+    @FXML
+    private TableView<Product> productTable;
+
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @FXML
+    public void initialize() {
+        loadProducts();
+    }
+
+    private void loadProducts() {
+        List<Product> products = productService.getAllProducts();
+        productTable.getItems().addAll(products);
+    }
+
+    @FXML
+    public void addProduct() {
+        // Lógica para agregar un nuevo producto
+    }
+}

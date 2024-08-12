@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\SPRING\WorksPace_MinMinas\.metadata\.plugins\org.eclipse.jdt.core
+1964895516.index
+1127455137.index
+607673822.index

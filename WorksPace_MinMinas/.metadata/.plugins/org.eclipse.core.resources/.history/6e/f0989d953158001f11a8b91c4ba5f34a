@@ -1,0 +1,5 @@
+package com.servicio.demo.service;
+
+public class InventoryRequest {
+
+}

@@ -1,0 +1,33 @@
+package com.servicio.demo.controller;
+
+import com.servicio.demo.model.Inventory;
+import com.servicio.demo.service.InventoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/inventory")
+public class InventoryController {
+
+    @Autowired
+    private InventoryService inventoryService;
+
+    @PostMapping
+    public Inventory addInventory(@RequestBody Inventory inventory) {
+        return inventoryService.addInventory(inventory.getProductId(), inventory.getQuantity());
+    }
+
+
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<Void> deleteInventory(@PathVariable Long productId) {
+        inventoryService.deleteInventory(productId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Inventory> getInventoryByProductId(@PathVariable Long productId) {
+        Inventory inventory = inventoryService.getInventoryByProductId(productId);
+        return inventory != null ? ResponseEntity.ok(inventory) : ResponseEntity.notFound().build();
+    }
+}

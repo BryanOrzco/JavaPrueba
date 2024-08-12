@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.servicio.demo.ProductController">
+    <TextField fx:id="nameField" promptText="Nombre del Producto" layoutX="10" layoutY="10" />
+    <TextField fx:id="descriptionField" promptText="Descripción" layoutX="10" layoutY="40" />
+    <TextField fx:id="priceField" promptText="Precio" layoutX="10" layoutY="70" />
+    <TextField fx:id="quantityField" promptText="Cantidad" layoutX="10" layoutY="100" />
+    <Button text="Agregar Producto" layoutX="10" layoutY="130" onAction="#addProduct" />
+
+    <TableView fx:id="productTable" layoutX="10" layoutY="170" prefWidth="600" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="nameColumn" text="Nombre" />
+            <TableColumn fx:id="descriptionColumn" text="Descripción" />
+            <TableColumn fx:id="priceColumn" text="Precio" />
+        </columns>
+    </TableView>
+
+    <Button text="Eliminar Producto" layoutX="620" layoutY="170" onAction="#deleteProduct" />
+    <Button text="Ver Detalles" layoutX="620" layoutY="200" onAction="#viewProductDetails" />
+
+    <TextArea fx:id="productDetailsArea" layoutX="620" layoutY="240" prefWidth="400" prefHeight="230" />
+</AnchorPane>
